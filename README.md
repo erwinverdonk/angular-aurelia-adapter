@@ -1,0 +1,1 @@
+# angular-aurelia-adapter
