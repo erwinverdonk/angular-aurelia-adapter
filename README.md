@@ -12,10 +12,9 @@ Adapter to use Angular components and code inside an Aurelia project.
   export function configure(aurelia) {
     aurelia.use
       .standardConfiguration()
-      .developmentLogging()
       // Install the plugin
       .plugin('angular-aurelia-adapter');
-    aurelia.start().then(a => a.setRoot());
+    aurelia.start().then(_ => _.setRoot());
   }
   ```
 
