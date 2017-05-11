@@ -45,7 +45,7 @@ class AngularJSCompiler {
     this._injector = undefined;
   }
 
-  public compile = (element: Element|string, scope?: any, maxPriority?: number) => {
+  public compile = (element: Element, scope?: any, maxPriority?: number) => {
     const compileScope: angular.IScope = this._scope.$new();
     let compiledElement;
 
@@ -68,7 +68,7 @@ class AngularJSCompiler {
       }
     }
 
-    compiledElement = this._compile(element as Element)(compileScope);
+    compiledElement = this._compile(element)(compileScope);
     compileScope.$digest();
 
     return compiledElement;

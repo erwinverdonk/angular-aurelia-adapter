@@ -27,3 +27,12 @@ Since the plugin is globalized, you can use it by placing a `<angularjs>` custom
     <hello-world value="$ctrl.value"></hello-world>
   </angularjs>
   ```
+
+# Using the compiler
+```javascript
+import {AngularJSCompiler} from "angular-aurelia-adapter";
+
+AngularJSCompiler
+  .create(["yourModuleIDs"])
+  .compile(this.elementToCompile, this.myController);
+```
