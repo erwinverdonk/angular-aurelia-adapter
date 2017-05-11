@@ -1,27 +1,23 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "sourceMap": true,
     "target": "es5",
-    "module": "system",
-    "declaration": false,
-    "noImplicitAny": false,
-    "removeComments": true,
-    "emitDecoratorMetadata": true,
+    "module": "CommonJS",
     "experimentalDecorators": true,
+    "emitDecoratorMetadata": false,
     "moduleResolution": "node",
-    "lib": ["es2017", "dom"]
+    "stripInternal": true,
+    "preserveConstEnums": true,
+    "listFiles": true,
+    "declaration": true,
+    "removeComments": true,
+    "lib": ["es2015", "dom"]
   },
   "exclude": [
     "node_modules",
     "dist"
   ],
-  "filesGlob": [
-    "./src/**/*.ts",
-    "./test/**/*.ts",
-    "./custom_typings/**/*.d.ts"
-  ],
-  "atom": {
-    "rewriteTsconfig": false
-  }
+  "files": [
+    "./src/index.ts"
+  ]
 }

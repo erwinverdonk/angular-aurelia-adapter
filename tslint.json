@@ -13,7 +13,7 @@
             "double",
             "avoid-escape"
         ],
-        "semicolon": [true, "never"],
+        "semicolon": [true, "always"],
         "whitespace": [true,
             "check-decl",
             "check-operator",
