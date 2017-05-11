@@ -11,7 +11,7 @@ var AngularJSCompiler = (function () {
             _this._compile = undefined;
             _this._injector = undefined;
         };
-        this.compile = function (element, scope, maxPriority) {
+        this.compile = function (element, scope) {
             var compileScope = _this._scope.$new();
             var compiledElement;
             if (scope) {
@@ -36,7 +36,7 @@ var AngularJSCompiler = (function () {
         this.invoke = function (fn, self, locals) {
             _this._injector.invoke(fn, self, locals);
         };
-        if (v instanceof Node) {
+        if (v instanceof Element) {
             this._injector = angular.element(v).injector();
         }
         else {
