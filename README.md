@@ -1,7 +1,7 @@
 # angular-aurelia-adapter
 Adapter to use Angular components and code inside an Aurelia project.
 
-# Install the adapter
+# Installation
 1. Install the plugin into your project using npm
   ```
   npm install angular-aurelia-adapter
@@ -19,7 +19,7 @@ Adapter to use Angular components and code inside an Aurelia project.
   }
   ```
 
-# Using the adapter
+# Using the template adapter
 Since the plugin is globalized, you can use it by placing a `<angularjs>` custom element in any of your views:
 
   ```html
@@ -28,11 +28,24 @@ Since the plugin is globalized, you can use it by placing a `<angularjs>` custom
   </angularjs>
   ```
 
-# Using the compiler
+# Using the template compiler
 ```javascript
 import {AngularJSCompiler} from "angular-aurelia-adapter";
 
 AngularJSCompiler
   .create(["yourModuleIDs"])
   .compile(this.elementToCompile, this.myController);
+```
+
+# Using the injectable function invoker
+```javascript
+import {AngularJSCompiler} from "angular-aurelia-adapter";
+
+AngularJSCompiler
+  .create(["yourModuleIDs"])
+  .invoke(($location, $timeout) => {
+    $timeout(_ => {
+      $location.path("/newValue");
+    }, 1000);
+  });
 ```

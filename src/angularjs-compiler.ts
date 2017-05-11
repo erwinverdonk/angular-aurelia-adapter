@@ -1,16 +1,27 @@
 import * as angular from "angular";
 
+/**
+ * AngularJS compiler to compile DOM elements and invoke functions with dependency injection.
+ */
 class AngularJSCompiler {
   private _scope: angular.IScope;
   private _compile: angular.ICompileService;
   private _injector: angular.auto.IInjectorService;
 
-  public static create = (modules: Node|Array<string> = []) => {
+  /**
+   * Creates a new instance
+   * @param {Element|string[]} [modules] Element to get injector of or array of module ids to create new injector.
+   * @return {AngularJSCompiler} Instance
+   */
+  public static create = (modules: Element|Array<string> = []) => {
     return new AngularJSCompiler(modules);
   }
 
-  public constructor (v: Node|Array<string> = []) {
-    if(v instanceof Node){
+  /**
+   * @private
+   */
+  private constructor (v: Element|Array<string> = []) {
+    if(v instanceof Element){
         this._injector = angular.element(v).injector();
     } else {
       v = [].concat(v);
@@ -38,6 +49,9 @@ class AngularJSCompiler {
     });
   }
 
+  /**
+   * Destroys the instance
+   */
   public destroy = () => {
     this._scope.$destroy();
     this._scope = undefined;
@@ -45,7 +59,13 @@ class AngularJSCompiler {
     this._injector = undefined;
   }
 
-  public compile = (element: Element, scope?: any, maxPriority?: number) => {
+  /**
+   * Compiles the DOM element with the given scope and priority.
+   * @param {Element} element DOM element to compile
+   * @param {*} [scope] Scope to use when compiling element
+   * @return {Element} Compiled DOM element
+   */
+  public compile = (element: Element, scope?: any) => {
     const compileScope: angular.IScope = this._scope.$new();
     let compiledElement;
 
@@ -74,7 +94,13 @@ class AngularJSCompiler {
     return compiledElement;
   }
 
-  public invoke = (fn: Array<string|Function>|Function, self?: any, locals?: any) => {
+  /**
+   * Invoke a function and supply arguments from injector.
+   * @param {Function} fn The injectable function to invoke
+   * @param {*} [self] The 'this' for the invoked function
+   * @param {*} [locals] Argument names are read from this object first, before the injector is consulted.
+   */
+  public invoke = (fn: Function|Array<string|Function>, self?: any, locals?: {}) => {
     this._injector.invoke(fn as any, self, locals);
   }
 }
