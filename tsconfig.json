@@ -2,7 +2,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "target": "es5",
-    "module": "CommonJS",
+    "module": "UMD",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": false,
     "moduleResolution": "node",
