@@ -51,11 +51,10 @@ var AngularJSCompiler = (function () {
             v.splice(0, 0, "ngMonkey");
             this._injector = angular.injector(v);
         }
-        this.invoke(function ($compile, $rootScope) {
-            "ngInject";
-            _this._scope = $rootScope.$new();
-            _this._compile = $compile;
-        });
+        this.invoke(["$compile", "$rootScope", function ($compile, $rootScope) {
+                _this._scope = $rootScope.$new();
+                _this._compile = $compile;
+            }]);
     }
     return AngularJSCompiler;
 }());

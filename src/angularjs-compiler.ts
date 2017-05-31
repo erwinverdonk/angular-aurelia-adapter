@@ -41,12 +41,10 @@ class AngularJSCompiler {
       this._injector = angular.injector(v);
     }
 
-    this.invoke(($compile: angular.ICompileService, $rootScope: angular.IRootScopeService) => {
-      "ngInject";
-
+    this.invoke(["$compile", "$rootScope", ($compile: angular.ICompileService, $rootScope: angular.IRootScopeService) => {
       this._scope = $rootScope.$new();
       this._compile = $compile;
-    });
+    }]);
   }
 
   /**
