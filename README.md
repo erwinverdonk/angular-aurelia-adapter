@@ -6,7 +6,18 @@ Adapter to use Angular components and code inside an Aurelia project.
   ```
   npm install angular-aurelia-adapter
   ```
-2. Import the plugin using the `aurelia` configuration object
+
+2. (Only when using Aurelia CLI) Add the NPM module as dependency to `aurelia.json`.
+
+```json
+{
+  "name": "angular-aurelia-adapter",
+  "path": "../node_modules/angular-aurelia-adapter/dist",
+  "main": "index"
+}
+```
+
+3. Import the plugin using the `aurelia` configuration object
 
   ```javascript
   export function configure(aurelia) {

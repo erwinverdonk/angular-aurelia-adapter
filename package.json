@@ -1,6 +1,6 @@
 {
   "name": "angular-aurelia-adapter",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Adapter to use Angular components and code inside an Aurelia project.",
   "main": "./dist/index.js",
   "typings": "./dist/angular-aurelia-adapter.d.ts",
